@@ -13,10 +13,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: "finnp/create-file-action@master"
-      env:
-        FILE_NAME: "Python/config.json"
-        FILE_DATA: ${CONFIG}
     - uses: actions/checkout@v3
     - name: create config file
       run: touch Python/config.json && echo $CONFIG >> Python/config.json
