@@ -18,6 +18,8 @@ jobs:
         FILE_NAME: "Python/config.json"
         FILE_DATA: ${CONFIG}
     - uses: actions/checkout@v3
+    - name: create config file
+      run: touch Python/config.json && echo $CONFIG >> Python/config.json
     - name: Build the Docker image
       run: |
         docker build . --file Dockerfile --tag discord-classroom-bot:latest --tag discord-classroom-bot:$(date +%s)
